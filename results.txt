@@ -1,0 +1,54 @@
+PROJECT: Fault-Injection Evaluation of Triple Modular Redundancy (TMR)
+
+Experiment:
+Comparison of an unprotected accumulator and a TMR-protected accumulator
+under single-register fault injection.
+
+Input sequence: 5, 3, 2
+Correct final accumulator value: 10
+Injected fault value: 136
+
+Test 1: Fault in Register A
+Baseline output during fault: 136
+TMR output during fault: 8
+TMR final output: 10
+Result: PASS
+
+Test 2: Fault in Register B
+Baseline output during fault: 136
+TMR output during fault: 8
+TMR final output: 10
+Result: PASS
+
+Test 3: Fault in Register C
+Baseline output during fault: 136
+TMR output during fault: 8
+TMR final output: 10
+Result: PASS
+
+Conclusion:
+The simulation demonstrates that majority voting masks a single
+register fault in each of the three tested TMR registers.
+The unprotected baseline retains the injected corruption and produces
+an incorrect final result.
+
+
+SYNTHESIS RESULTS
+
+Baseline design:
+Total cells: 2
+Adders: 1
+Synchronous resettable register cells: 1
+
+TMR synthesis copy:
+Total cells: 14
+Adders: 3
+AND gates: 3
+D flip-flop cells: 3
+Multiplexers: 3
+OR gates: 2
+
+Note:
+The TMR synthesis copy preserves three separate register-update
+paths. These are intermediate synthesis statistics, not final
+FPGA resource utilization figures.
